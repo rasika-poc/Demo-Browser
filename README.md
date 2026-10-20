@@ -20,6 +20,14 @@ npm run dist       # dist/Demo Browser-<version>-arm64.dmg and .zip
 npm run dist:dir   # just dist/mac-arm64/Demo Browser.app (faster)
 ```
 
+To publish a release, push a version tag. GitHub Actions builds Apple Silicon and Intel versions and attaches them to a GitHub release:
+
+```bash
+git tag v1.0.1 && git push origin v1.0.1
+```
+
+You can also run **Build & Release** by hand from the Actions tab. That builds the app and uploads it as a workflow artifact without creating a release.
+
 The app is unsigned. The first time you open it on another Mac, right-click it and choose **Open**, or run `xattr -cr "/Applications/Demo Browser.app"`.
 
 ## Using it
