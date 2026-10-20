@@ -1,0 +1,13 @@
+{
+  "name": "demo-browser",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Three-pane animated browser for live demos",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "env -u ELECTRON_RUN_AS_NODE electron ."
+  },
+  "devDependencies": {
+    "electron": "^44.9.1"
+  }
+}

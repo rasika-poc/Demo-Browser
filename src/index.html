@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:">
+  <title>Demo Browser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="topbar">
+    <div class="brand"><span class="logo"></span>Demo Browser</div>
+
+    <div class="scene-pill">
+      <button class="icon-btn" id="prev-scene" title="Previous scene (⌘⌥←)">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="scene-text" id="scene-text"></div>
+      <button class="icon-btn" id="next-scene" title="Next scene (⌘⌥→)">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="spacer"></div>
+    <button class="icon-btn" id="add-pane" title="Add site (⌘T)">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <div class="seg" id="layout-seg"><span class="thumb"></span></div>
+    <button class="icon-btn" id="toggle-clean" title="Hide browser chrome (⌘⇧H)">
+      <svg viewBox="0 0 24 24"><path d="M3 7V4h3M21 7V4h-3M3 17v3h3M21 17v3h-3"/><rect x="7" y="8" width="10" height="8" rx="1.5"/></svg>
+    </button>
+    <button class="icon-btn" id="toggle-panel" title="Control panel (⌘K)">
+      <svg viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+    </button>
+  </header>
+
+  <main id="stage"></main>
+
+  <aside id="panel">
+    <section class="card">
+      <h3>Sites <span class="hint" id="site-count"></span></h3>
+      <div id="site-fields"></div>
+      <button id="add-site" class="btn add">+ Add site <span class="hint">⌘T</span></button>
+    </section>
+
+    <section class="card">
+      <h3>Scenes <span class="hint">⌘⌥← / ⌘⌥→</span></h3>
+      <ol id="scene-list"></ol>
+      <form id="scene-form">
+        <input id="scene-name" placeholder="New scene name" spellcheck="false">
+        <button type="submit" class="btn primary">Save current</button>
+      </form>
+      <div class="row">
+        <button id="export" class="btn">Export…</button>
+        <button id="import" class="btn">Import…</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Presentation</h3>
+      <div class="field">
+        <span>Site width <span class="hint">zoom with − / + on each pane</span></span>
+        <div class="chips" id="site-width"></div>
+      </div>
+      <label class="slider">
+        <span>Animation duration <output id="speed-out"></output></span>
+        <input type="range" id="speed" min="200" max="1600" step="50">
+      </label>
+      <label class="slider">
+        <span>Gap <output id="gap-out"></output></span>
+        <input type="range" id="gap" min="0" max="32" step="2">
+      </label>
+      <label class="toggle"><input type="checkbox" id="dim"><span></span>Dim unfocused panes</label>
+      <label class="toggle"><input type="checkbox" id="clean"><span></span>Hide browser chrome</label>
+    </section>
+
+    <section class="card shortcuts">
+      <h3>Shortcuts</h3>
+      <dl>
+        <dt>⌘1 … ⌘6</dt><dd>Focus pane</dd>
+        <dt>⌘T · ⌘W</dt><dd>Add / remove site</dd>
+        <dt>⌘0</dt><dd>Show all (columns)</dd>
+        <dt>⌘⇧L</dt><dd>Next layout</dd>
+        <dt>⌘L</dt><dd>Edit focused URL</dd>
+        <dt>⌘⌥← ⌘⌥→</dt><dd>Previous / next scene</dd>
+        <dt>⌘K</dt><dd>Control panel</dd>
+        <dt>⌘⇧H</dt><dd>Hide browser chrome</dd>
+        <dt>⌘= · ⌘−</dt><dd>Zoom focused pane</dd>
+        <dt>⌘R · ⌘⇧R</dt><dd>Reload focused / all</dd>
+        <dt>⌃⌘F</dt><dd>Fullscreen</dd>
+      </dl>
+      <p class="hint">Double-click a pane's title bar to toggle it fullscreen.</p>
+    </section>
+  </aside>
+
+  <button id="reveal" title="Show browser chrome (⌘⇧H)"></button>
+  <div id="toast"></div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
