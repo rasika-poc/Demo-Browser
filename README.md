@@ -28,7 +28,10 @@ git tag v1.0.1 && git push origin v1.0.1
 
 You can also run **Build & Release** by hand from the Actions tab. That builds the app and uploads it as a workflow artifact without creating a release.
 
-The app is unsigned. The first time you open it on another Mac, right-click it and choose **Open**, or run `xattr -cr "/Applications/Demo Browser.app"`.
+The app is ad-hoc signed, not signed with an Apple Developer ID, so macOS blocks it the first time you open a downloaded copy. To allow it, either:
+
+- try to open it, then go to **System Settings → Privacy & Security** and click **Open Anyway**, or
+- run `xattr -cr "/Applications/Demo Browser.app"`.
 
 ## Using it
 

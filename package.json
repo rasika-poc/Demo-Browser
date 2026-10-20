@@ -30,6 +30,7 @@
         "zip"
       ],
       "identity": null
-    }
+    },
+    "afterPack": "build/adhoc-sign.js"
   }
 }
