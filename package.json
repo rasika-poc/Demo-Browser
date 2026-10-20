@@ -5,9 +5,31 @@
   "description": "Three-pane animated browser for live demos",
   "main": "src/main.js",
   "scripts": {
-    "start": "env -u ELECTRON_RUN_AS_NODE electron ."
+    "start": "env -u ELECTRON_RUN_AS_NODE electron .",
+    "dist": "electron-builder --mac",
+    "dist:dir": "electron-builder --mac --dir"
   },
   "devDependencies": {
-    "electron": "^44.9.1"
+    "electron": "^44.9.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.demo.browser",
+    "productName": "Demo Browser",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "identity": null
+    }
   }
 }

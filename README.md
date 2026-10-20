@@ -13,6 +13,15 @@ npm start
 
 > If Electron starts as plain Node (`Cannot find module 'electron'`), something exported `ELECTRON_RUN_AS_NODE`. VS Code's terminal often does this. `npm start` already clears it.
 
+## Build a Mac app
+
+```bash
+npm run dist       # dist/Demo Browser-<version>-arm64.dmg and .zip
+npm run dist:dir   # just dist/mac-arm64/Demo Browser.app (faster)
+```
+
+The app is unsigned. The first time you open it on another Mac, right-click it and choose **Open**, or run `xattr -cr "/Applications/Demo Browser.app"`.
+
 ## Using it
 
 - **Add / remove sites**: use **+** in the top bar or the control panel (or ⌘T) to add a site, and **×** on a pane (or ⌘W) to remove one. You can have 1 to 6 sites.

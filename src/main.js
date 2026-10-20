@@ -3,6 +3,8 @@ const path = require('node:path');
 const fs = require('node:fs');
 
 const isMac = process.platform === 'darwin';
+// Keep one settings folder whether run via `npm start` or as the packaged "Demo Browser" app.
+app.setPath('userData', path.join(app.getPath('appData'), 'demo-browser'));
 const configPath = () => path.join(app.getPath('userData'), 'config.json');
 const windowStatePath = () => path.join(app.getPath('userData'), 'window.json');
 
